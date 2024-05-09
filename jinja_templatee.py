@@ -1,3 +1,7 @@
+# jinja2 template engine
+#{%...%} for statements
+#{{  }} expressions to print output
+#{#....#} this for comments 
 ## integrate html with flask
 #HHTP verb Like POST GET
 
@@ -16,7 +20,8 @@ def success(score):
         res="Pass"
     else:
         res="fail"
-    return render_template('result.html', result=res)
+    exp={ 'score':score, 'res':res }
+    return render_template('results.html', result = exp)
 
 @app.route('/fail/<int:score>')
 def fail(score):

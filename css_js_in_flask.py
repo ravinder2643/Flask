@@ -1,3 +1,8 @@
+# learn how to add css nd Js in flask app
+# jinja2 template engine
+#{%...%} for statements
+#{{  }} expressions to print output
+#{#....#} this for comments 
 ## integrate html with flask
 #HHTP verb Like POST GET
 
@@ -6,7 +11,7 @@ app= Flask(__name__)
 
 @app.route('/')
 def welcome():
-    return render_template('index.html ')
+    return render_template('css_js.html ')
 
 
 @app.route('/success/<int:score>')
@@ -16,7 +21,8 @@ def success(score):
         res="Pass"
     else:
         res="fail"
-    return render_template('result.html', result=res)
+    exp={ 'score':score, 'res':res }
+    return render_template('results.html', result = exp)
 
 @app.route('/fail/<int:score>')
 def fail(score):
